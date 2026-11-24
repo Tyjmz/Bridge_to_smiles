@@ -1,48 +1,46 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const primaryNavigation = document.querySelector("#primary-navigation");
-const inquiryType = document.querySelector("#inquiry-type");
-const familyFields = document.querySelector("#family-fields");
+const inquiryTypeSelect = document.querySelector("#inquiry-type");
+const familyInquiryFields = document.querySelector("#family-fields");
 const contactForm = document.querySelector(".contact-form");
-const currentYear = document.querySelector("#current-year");
+const footerYear = document.querySelector("#current-year");
 
-if (currentYear) {
-  currentYear.textContent = String(new Date().getFullYear());
+if (footerYear) {
+  footerYear.textContent = String(new Date().getFullYear());
 }
 
 if (menuToggle && primaryNavigation) {
-  const closeMenu = () => {
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation menu");
-    primaryNavigation.classList.remove("is-open");
+  const setMenuOpen = (isOpen) => {
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation menu" : "Open navigation menu",
+    );
+    primaryNavigation.classList.toggle("is-open", isOpen);
   };
 
   menuToggle.addEventListener("click", () => {
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-    menuToggle.setAttribute("aria-expanded", String(!isExpanded));
-    menuToggle.setAttribute(
-      "aria-label",
-      isExpanded ? "Open navigation menu" : "Close navigation menu",
-    );
-    primaryNavigation.classList.toggle("is-open", !isExpanded);
+    setMenuOpen(!isExpanded);
   });
 
   primaryNavigation.addEventListener("click", (event) => {
     if (event.target instanceof Element && event.target.closest("a")) {
-      closeMenu();
+      setMenuOpen(false);
     }
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
-      closeMenu();
+      setMenuOpen(false);
       menuToggle.focus();
     }
   });
 }
 
-if (inquiryType && familyFields) {
-  inquiryType.addEventListener("change", () => {
-    familyFields.hidden = inquiryType.value !== "family";
+if (inquiryTypeSelect && familyInquiryFields) {
+  inquiryTypeSelect.addEventListener("change", () => {
+    familyInquiryFields.hidden = inquiryTypeSelect.value !== "family";
   });
 }
 

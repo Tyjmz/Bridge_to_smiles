@@ -1,28 +1,39 @@
 # Bridge to Smiles — Phase 1 Website Prototype
 
-A lightweight, single-page website prototype for Bridge to Smiles, built with semantic HTML, CSS, and vanilla JavaScript. It presents the organization's mission and current information-and-referral goals without implying that funding, provider partnerships, or other future services are already in place.
+A responsive, single-page website introducing Bridge to Smiles and its information and referral support for children and families seeking affordable dental care.
+
+## Technology
+
+The site uses semantic HTML5, CSS3, and vanilla JavaScript. No build step or package installation is required.
+
+## Project structure
+
+```text
+index.html       Page content and structure
+css/styles.css   Brand styles and responsive layouts
+js/script.js     Mobile navigation, inquiry fields, and footer year
+assets/images/   Original photographs used by the site
+assets/logos/    Reserved for approved logo assets
+```
 
 ## Preview locally
 
-Open the project folder in VS Code and start the **Live Server** extension from `index.html` (for example, choose **Open with Live Server**). No build step or package installation is required. You can also open `index.html` directly in a browser.
+Open the project folder in VS Code and start the Live Server extension from `index.html`. You can also open `index.html` directly in a browser.
+
+## Website sections
+
+- **Home:** introduction and calls to action.
+- **About:** mission and founding story.
+- **How We Help:** information about referral and navigation support.
+- **Get Involved:** invitations to dental offices, donors, sponsors, and volunteers.
+- **Contact:** privacy guidance and a non-submitting contact form prototype.
 
 ## Updating the site
 
-- Edit page content and section links in `index.html`.
-- Adjust colors, layout, and responsive styles in `css/styles.css`.
-- `js/script.js` handles the mobile navigation, optional family inquiry fields, and current-year footer. The contact form is not connected and does not submit.
+Edit page content and navigation in `index.html`; adjust colors, spacing, and responsive presentation in `css/styles.css`. Update the small interactions in `js/script.js`. Add approved original photos to `assets/images/` and reference them from the page; the selected photos are displayed with reversible CSS sizing and cropping. The header and footer currently use a temporary text wordmark because no approved logo file is present.
 
-## Logo assets
+The contact form is intentionally disabled and does not send or store information. The JavaScript prevents submission as an additional safeguard.
 
-No approved logo files were present when this prototype was created. The header and footer use a temporary text-based wordmark with a simple decorative mark. Replace those wordmarks in `index.html` with the founder's approved logo from `assets/logos/` once the logo files and usage preference are confirmed. Place any approved, optimized site images in `assets/images/`.
+## Before deployment
 
-## Prototype placeholders
-
-- The contact form is intentionally disabled for submission until an approved contact system is configured. The form does not send or store information.
-- Public contact details and the service area have not been provided.
-- No payment processing, backend services, hosting, domain settings, or email delivery are configured.
-- Referral partnerships, transportation coordination, and financial assistance are not represented as currently available.
-
-## Before launch
-
-Confirm the exact domain and Wix arrangements, approved logo files, public contact details, service area, and the content for any services the organization can offer. After the founder approves this prototype, select and configure a contact-form service, review privacy and spam protections, test the site and form, and decide on hosting and domain connection. Review the finished site for accessibility and content accuracy before publication.
+Confirm the approved logo, public contact details, service area, and the accuracy of available services. Obtain approval for the site content and photos, then choose hosting and domain arrangements. If a live contact form is added later, configure an approved service and review privacy and spam protections before launch.
