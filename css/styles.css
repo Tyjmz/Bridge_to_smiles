@@ -113,14 +113,31 @@ textarea:focus-visible {
   gap: 0.65rem;
   color: var(--navy);
   text-decoration: none;
+  flex: 0 0 auto;
+}
+
+.brand-logo {
+  display: block;
+  width: clamp(140px, 18vw, 200px);
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+  decoding: async;
 }
 
 .brand-mark {
   display: inline-flex;
-  width: 39px;
-  height: 39px;
+  width: 42px;
+  height: 42px;
   flex: 0 0 auto;
   color: var(--teal);
+}
+
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .brand-mark svg {
@@ -909,6 +926,11 @@ h1 span {
   color: var(--white);
 }
 
+.brand-footer .brand-logo {
+  width: clamp(130px, 16vw, 180px);
+  opacity: 0.95;
+}
+
 .brand-footer .brand-name span {
   color: #6de0bd;
 }
@@ -1019,6 +1041,10 @@ h1 span {
 
   .header-inner {
     min-height: 70px;
+  }
+
+  .brand-logo {
+    width: clamp(110px, 15vw, 160px);
   }
 
   .brand-mark {
