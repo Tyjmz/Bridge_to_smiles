@@ -1,3 +1,4 @@
+/* Design tokens */
 :root {
   color-scheme: light;
   --navy: #1c204f;
@@ -21,13 +22,13 @@
   box-sizing: border-box;
 }
 
+/* Base styles and accessibility */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
 
 body {
-  min-width: 320px;
   margin: 0;
   color: var(--ink);
   background: var(--white);
@@ -65,11 +66,13 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
+/* Layout utilities */
 .container {
   width: min(1120px, calc(100% - 2.5rem));
   margin-inline: auto;
 }
 
+/* Header and navigation */
 .skip-link {
   position: fixed;
   z-index: 20;
@@ -199,6 +202,7 @@ textarea:focus-visible {
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Hero */
 .hero {
   position: relative;
   overflow: hidden;
@@ -239,6 +243,7 @@ textarea:focus-visible {
   background: var(--teal);
 }
 
+/* Typography */
 h1,
 h2,
 h3,
@@ -363,23 +368,25 @@ h1 span {
   position: relative;
   z-index: 1;
   display: flex;
-  width: min(360px, 85%);
-  min-height: 315px;
-  padding: 1rem;
+  width: min(390px, 90%);
+  padding: 0.8rem;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+  gap: 0.8rem;
   border: 1px solid rgb(28 32 79 / 5%);
   border-radius: 2rem;
   background: rgb(255 255 255 / 91%);
   box-shadow: var(--shadow);
-  transform: rotate(-3deg);
 }
 
-.smile-illustration {
-  width: 78%;
-  max-height: 200px;
-  overflow: visible;
+.hero-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.35rem;
+  object-fit: cover;
+  object-position: center 43%;
 }
 
 .smile-card-label {
@@ -387,69 +394,6 @@ h1 span {
   font-family: var(--font-heading);
   font-size: 0.92rem;
   font-weight: 700;
-}
-
-.smile-sparkle {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-}
-
-.smile-sparkle::before,
-.smile-sparkle::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 3px;
-  height: 100%;
-  border-radius: 4px;
-  background: var(--teal);
-  content: "";
-  transform: translate(-50%, -50%);
-}
-
-.smile-sparkle::after {
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.sparkle-one {
-  top: 18%;
-  left: 18%;
-}
-
-.sparkle-two {
-  right: 15%;
-  bottom: 30%;
-  transform: scale(0.7);
-}
-
-.art-pill {
-  position: absolute;
-  z-index: 2;
-  padding: 0.6rem 0.95rem;
-  border-radius: 99px;
-  color: var(--navy);
-  background: var(--white);
-  box-shadow: 0 8px 26px rgb(28 32 79 / 10%);
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-.pill-top {
-  top: 13%;
-  left: 3%;
-  transform: rotate(-5deg);
-}
-
-.pill-bottom {
-  right: 0;
-  bottom: 10%;
-  transform: rotate(4deg);
-}
-
-.pill-bottom span {
-  color: var(--teal-dark);
-  font-size: 1.1rem;
 }
 
 .hero-wave {
@@ -463,6 +407,7 @@ h1 span {
   transform: rotate(-1.5deg);
 }
 
+/* About and mission */
 .section-pad {
   padding-block: 6rem;
 }
@@ -521,7 +466,7 @@ h1 span {
   gap: 1.4rem;
   border-radius: 1.25rem;
   background: var(--mint);
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr) minmax(220px, 0.72fr);
 }
 
 .story-icon {
@@ -554,6 +499,23 @@ h1 span {
   margin-bottom: 0;
 }
 
+.story-photo,
+.partner-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 4px solid var(--white);
+  border-radius: 1rem;
+  box-shadow: 0 10px 28px rgb(28 32 79 / 10%);
+  object-fit: cover;
+}
+
+.story-photo {
+  aspect-ratio: 4 / 3;
+  object-position: center 42%;
+}
+
+/* Services */
 .services-section {
   background: #f7f9fb;
 }
@@ -652,8 +614,32 @@ h1 span {
   text-align: center;
 }
 
+/* Get involved */
 .involvement-section {
   background: var(--white);
+}
+
+.partner-intro {
+  display: grid;
+  margin-bottom: 3rem;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  grid-template-columns: 1fr 0.9fr;
+}
+
+.partner-copy {
+  max-width: 680px;
+  margin: 0;
+  text-align: left;
+}
+
+.partner-copy .eyebrow {
+  justify-content: flex-start;
+}
+
+.partner-photo {
+  aspect-ratio: 3 / 2;
+  object-position: center 38%;
 }
 
 .involvement-grid {
@@ -727,6 +713,7 @@ h1 span {
   transform: translateX(4px);
 }
 
+/* Contact and form */
 .contact-section {
   background: var(--mint);
 }
@@ -905,6 +892,7 @@ h1 span {
   text-align: center;
 }
 
+/* Footer */
 .site-footer {
   color: #f3f5ff;
   background: var(--navy);
@@ -983,6 +971,7 @@ h1 span {
   text-underline-offset: 3px;
 }
 
+/* Responsive layouts */
 @media (max-width: 900px) {
   .header-inner {
     gap: 1rem;
@@ -1123,22 +1112,11 @@ h1 span {
   }
 
   .smile-card {
-    width: min(325px, 78%);
-    min-height: 270px;
+    width: min(350px, 90%);
   }
 
-  .smile-illustration {
-    max-height: 170px;
-  }
-
-  .pill-top {
-    top: 7%;
-    left: 0;
-  }
-
-  .pill-bottom {
-    right: 0;
-    bottom: 4%;
+  .hero-photo {
+    border-radius: 1rem;
   }
 
   .section-pad {
@@ -1172,6 +1150,10 @@ h1 span {
     grid-template-columns: 1fr;
   }
 
+  .story-photo {
+    aspect-ratio: 16 / 10;
+  }
+
   .story-icon {
     width: 47px;
     height: 47px;
@@ -1184,6 +1166,25 @@ h1 span {
 
   .section-heading {
     margin-bottom: 2.2rem;
+  }
+
+  .partner-intro {
+    margin-bottom: 2.2rem;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .partner-copy {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .partner-copy .eyebrow {
+    justify-content: center;
+  }
+
+  .partner-photo {
+    aspect-ratio: 16 / 10;
   }
 
   .involvement-grid,
@@ -1246,7 +1247,6 @@ h1 span {
   }
 
   .smile-card {
-    min-height: 245px;
     border-radius: 1.5rem;
   }
 
@@ -1258,11 +1258,6 @@ h1 span {
   .art-circle-two {
     width: 300px;
     height: 300px;
-  }
-
-  .art-pill {
-    padding: 0.48rem 0.7rem;
-    font-size: 0.7rem;
   }
 
   .service-grid {
@@ -1297,6 +1292,7 @@ h1 span {
   }
 }
 
+/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
